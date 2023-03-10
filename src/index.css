@@ -1,0 +1,37 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: #213547;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  padding: 5px;
+}
+
+.search-bar label {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.product-table th {
+  padding-top: 10px;
+}
+
+.product-table tr.out-of-stock td:first-child {
+  color: red;
+}
+
+.product-table td {
+  padding: 2px;
+  padding-right: 40px;
+}
