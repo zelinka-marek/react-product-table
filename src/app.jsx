@@ -1,5 +1,7 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { products } from "../data/products";
+import { FilterType, InStockOnlyType, ProductType } from "./types";
 
 function SearchBar({
   filter,
@@ -28,6 +30,13 @@ function SearchBar({
   );
 }
 
+SearchBar.propTypes = {
+  filter: FilterType.isRequired,
+  inStockOnly: InStockOnlyType.isRequired,
+  onFilterChange: PropTypes.func.isRequired,
+  onInStockOnlyChange: PropTypes.func.isRequired,
+};
+
 function ProductCategoryRow({ category }) {
   return (
     <tr>
@@ -35,6 +44,10 @@ function ProductCategoryRow({ category }) {
     </tr>
   );
 }
+
+ProductCategoryRow.propTypes = {
+  category: PropTypes.string.isRequired,
+};
 
 function ProductRow({ product }) {
   return (
@@ -44,6 +57,10 @@ function ProductRow({ product }) {
     </tr>
   );
 }
+
+ProductRow.propTypes = {
+  product: ProductType.isRequired,
+};
 
 function ProductTable({ products, filter, inStockOnly }) {
   const rows = [];
@@ -81,6 +98,12 @@ function ProductTable({ products, filter, inStockOnly }) {
   );
 }
 
+ProductTable.propTypes = {
+  products: PropTypes.arrayOf(ProductType.isRequired).isRequired,
+  filter: FilterType.isRequired,
+  inStockOnly: InStockOnlyType.isRequired,
+};
+
 function FilterableProductTable({ products }) {
   const [filter, setFilter] = useState("");
   const [inStockOnly, setInStockOnly] = useState(false);
@@ -101,6 +124,10 @@ function FilterableProductTable({ products }) {
     </div>
   );
 }
+
+FilterableProductTable.propTypes = {
+  products: PropTypes.arrayOf(ProductType.isRequired).isRequired,
+};
 
 export function App() {
   return <FilterableProductTable products={products} />;
